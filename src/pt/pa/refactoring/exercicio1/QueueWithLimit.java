@@ -6,28 +6,46 @@ import pt.pa.refactoring.exercicio1.QueueFullException;
 
 import java.util.ArrayList;
 
-public class QueueWithLimit<T> extends ArrayList<T> implements Queue<T> {
+public class QueueWithLimit<T> implements Queue<T> {
+    private static final int LIMIT = 10;
+    private ArrayList<T> queue;
+
+    public QueueWithLimit(){
+        queue = new ArrayList<>();
+    }
 
     @Override
     public void enqueue(T elem) throws QueueFullException, NullPointerException {
         if(elem == null) throw new NullPointerException("Null not allowed.");
 
-        if(size() >= 10) throw new QueueFullException("Queue reached its limit (is full).");
+        if(size() >= LIMIT) throw new QueueFullException("Queue reached its limit (is full).");
 
-        add(elem);
+        queue.add(elem);
     }
 
     @Override
     public T dequeue() throws QueueEmptyException {
-        if(isEmpty()) throw new QueueEmptyException();
+        if(queue.isEmpty()) throw new QueueEmptyException();
 
-        return remove(0);
+        return queue.remove(0);
     }
 
     @Override
     public T front() throws QueueEmptyException {
         if(isEmpty()) throw new QueueEmptyException();
 
-        return get(0);
+        return queue.get(0);
+    }
+    @Override
+    public int size(){
+        return queue.size();
+    }
+    @Override
+    public boolean isEmpty(){
+        return queue.isEmpty();
+    }
+    @Override
+    public void clear(){
+        queue.clear();
     }
 }
