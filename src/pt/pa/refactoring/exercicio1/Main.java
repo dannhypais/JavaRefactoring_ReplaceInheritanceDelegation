@@ -1,4 +1,4 @@
-package pt.pa.refactoring;
+package pt.pa.refactoring.exercicio1;
 
 public class Main {
 

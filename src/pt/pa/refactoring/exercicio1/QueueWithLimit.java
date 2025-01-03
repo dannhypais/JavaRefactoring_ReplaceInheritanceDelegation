@@ -1,4 +1,8 @@
-package pt.pa.refactoring;
+package pt.pa.refactoring.exercicio1;
+
+import pt.pa.refactoring.exercicio1.Queue;
+import pt.pa.refactoring.exercicio1.QueueEmptyException;
+import pt.pa.refactoring.exercicio1.QueueFullException;
 
 import java.util.ArrayList;
 
